@@ -24,12 +24,19 @@ public class AutoTest {
 		 
 //		WebDriver driver3 = new EdgeDriver();      //Edge浏览器
 		 
-//		WebDriver driver4 = new InternetExplorerDriver();  // Internet Explorer浏览器
-		 
+//		WebDriver driver4 = new InternetExplorerDriver();  // Internet Explorer浏览器 
 		 
 //		WebDriver driver6 = new PhantomJSDriver();   //PhantomJS
-
-	}
+                //跳转页面
+		String handle = driver.getWindowHandle();//原来的
+		Set<String> win1=driver.getWindowHandles();//获取所有的
+		for(String str:win1) {
+			if(!str.equals(handle)) {
+				driver.switchTo().window(str);
+			}
+		}
+		System.out.println(driver.getCurrentUrl().toString());
+		
 
 }
    
